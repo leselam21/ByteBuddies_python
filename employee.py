@@ -1,3 +1,7 @@
+
+
+#USAGE: python employee.py 
+
 """
   Inheritance :
             Employee: Parent class 
@@ -8,11 +12,12 @@
 
 class Employee:
      count = 0
-     def __init__(self, first_name, last_name, employee_id, salary):
+     def __init__(self, first_name, last_name, employee_id, salary, man_id=None):
          self.first_name = first_name
          self.last_name =  last_name
          self.employee_id = employee_id
          self.pay = salary
+         self.man_id = man_id 
          Employee.count +=1
      
      def get_full_name (self):

@@ -1,4 +1,7 @@
 
+#USAGE: python manager.py 
+
+
 from employee import Employee
 
 class Manager(Employee):
