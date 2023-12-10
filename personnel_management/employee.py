@@ -35,8 +35,10 @@ class Employee:
      
     def __repr__(self):
         return "Employee('{}', '{}','{}')".format(self.first_name, self.last_name, self.pay)
-    def help(self):
-        print(help(self))
+    
+    @classmethod
+    def help(cls):
+        print(help(cls))
 
     @classmethod
     def find_by_id(cls, search_id):
@@ -71,4 +73,4 @@ if __name__ == '__main__':
     print(f"5. {emp.get_full_name()} said there are {emp.count} employees")
     print(f"6. {emp4.get_full_name()} said there are {emp4.count} employees")
     print(f"7. Woow! how {emp.get_full_name()} knew that there are {emp4.count} employees")
-    print(f"8. Did {emp.get_full_name()} know everything {emp4.get_full_name()} knows???")
+    print(f"8. Did {emp.get_full_name()} know everything {emp4.get_full_name()} knows")
