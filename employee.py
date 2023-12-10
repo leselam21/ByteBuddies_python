@@ -11,8 +11,8 @@
 """
 
 class Employee:
-     count = 0
-     def __init__(self, first_name, last_name, employee_id, salary, man_id=None):
+    count = 0
+    def __init__(self, first_name, last_name, employee_id, salary, man_id=None):
          self.first_name = first_name
          self.last_name =  last_name
          self.employee_id = employee_id
@@ -20,21 +20,38 @@ class Employee:
          self.man_id = man_id 
          Employee.count +=1
      
-     def get_full_name (self):
+    def get_full_name (self):
         return "{}  {}".format(self.first_name, self.last_name)
        
-     def display_info(self):
+    def display_info(self):
          print(f"Employee_Id:{self.employe_id}, Name :{self.name},  salary: {self.salary:.3f}")
-     def apply_raise(self, raise_percent):
+    def apply_raise(self, raise_percent):
         self.pay = self.pay + round(self.pay * raise_percent/100)
      
-     def get_pay(self):
+    def get_pay(self):
          return self.pay
      
-     def __repr__(self):
+    def __repr__(self):
         return "Employee('{}', '{}','{}')".format(self.first_name, self.last_name, self.pay)
-     def help(self):
+    def help(self):
         print(help(self))
+
+    @classmethod
+    def find_by_id(cls, search_id):
+        for employee in cls.employees:
+            if employee.employee_id == search_id:
+                employee.display_info()
+                return True
+        return False
+    
+    @classmethod
+    def show_employees(cls):
+        print("\nAll Registered Employees:")
+        if len(cls.employees) == 0:
+            print("There is No registered employee")
+            return 
+        for employee in cls.employees:
+            employee.display_info()
 
 
 if __name__ == '__main__':
