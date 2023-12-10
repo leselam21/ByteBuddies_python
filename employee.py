@@ -12,6 +12,7 @@
 
 class Employee:
     count = 0
+    employees = []
     def __init__(self, first_name, last_name, employee_id, salary, man_id=None):
          self.first_name = first_name
          self.last_name =  last_name
@@ -19,12 +20,13 @@ class Employee:
          self.pay = salary
          self.man_id = man_id 
          Employee.count +=1
+         Employee.employees.append(self)
      
     def get_full_name (self):
         return "{}  {}".format(self.first_name, self.last_name)
        
     def display_info(self):
-         print(f"Employee_Id:{self.employe_id}, Name :{self.name},  salary: {self.salary:.3f}")
+         print(f"Employee_Id: {self.employee_id} first_name: {self.first_name} last_name: {self.last_name} salary: {self.pay:.3f}")
     def apply_raise(self, raise_percent):
         self.pay = self.pay + round(self.pay * raise_percent/100)
      
@@ -48,10 +50,11 @@ class Employee:
     def show_employees(cls):
         print("\nAll Registered Employees:")
         if len(cls.employees) == 0:
-            print("There is No registered employee")
+            print("None: Employee list is empty!")
             return 
         for employee in cls.employees:
             employee.display_info()
+        print("\n")
 
 
 if __name__ == '__main__':

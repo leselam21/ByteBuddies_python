@@ -17,9 +17,10 @@ def main():
         print("\t===  2. Manager   ======")
         print("\t===  3. Exit      ======")
         print("\t========================")
-
         choice = input("\tEnter your choice (1, 2 or 3): ")
+
         if choice == "1":
+            while True:
                 print("\n\t---------------------------")
                 print("\t      Employee Menu:")
                 print("\t      --------------         ")
@@ -30,23 +31,33 @@ def main():
                 print("\t5. Help              ")
                 print("\t6. Back to Main Menu ")
                 print("\n\t---------------------------")
-                employee_choice = input("\tEnter your choice: any of(1,2, 3, 4,5): ")
+                employee_choice = input("\tEnter your choice: any of(1,2, 3, 4,5,6): ")
                 if employee_choice == "1":
                     employee_info = {
-                        "name": input("Enter employee name: "),
+                        "first_name": input("Enter employee first name: "),
+                        "last_name": input("Enter employee last name: "),
                         "employee_id": input("Enter employee ID: "),
                         "salary": float(input("Enter employee salary: "))
                     }
                     employee = Employee(**employee_info)
                     employee.display_info()
                 elif employee_choice == "2":
-                    print("Please write me,I am waiting for you :)")
+                    search_id = input("Enter employee ID to find: ")
+                    found = Employee.find_by_id(search_id)
+                    if not found:
+                        print(f"No employee found with ID {search_id}.")
+
                 elif employee_choice == "3":
                     print("Please write me,I am waiting for you :)")
                 elif employee_choice == "4":
                     Employee.show_employees()
+                elif employee_choice == "5":
+                    Employee.help()
+                elif employee_choice == "6":
+                     break
                 else:
-                     print("Please write me,I am waiting for you :)")
+                    print("Please write me,I am waiting for you :)")
+                    
         elif choice == "2":
             while True:
                 print("\nManager Menu:")
