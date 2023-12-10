@@ -33,8 +33,12 @@ class Manager(Employee):
     def remove_teammate(self, temate_id):
         pass
     
-    def remove_teammate(self, temate_id):
+    def remove_manager(self, man_id):
         pass
+    
+    def show_teammates(cls, man_id):
+        """Display teammates of the Manager whose ID is man_id."""
+        pass 
 
     def do_more(self):
         """
