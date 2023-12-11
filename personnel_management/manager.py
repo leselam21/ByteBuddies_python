@@ -3,31 +3,36 @@
 
 
 from employee import Employee
- managers =[]
 class Manager(Employee):
-    def __init__(self, fname, lname, employee_id,salary, man_id):
+    managers =[]
+    def __init__(self, fname, lname, employee_id,salary, manager_id):
         super().__init__(fname,lname, employee_id, salary)
-        self.man_id = man_id
+        self.manager_id = manager_id
         self.teammates = []
-        Manager.manager.append(self)
+        Manager.managers.append(self)
     
     @classmethod
-    def assign_manager(self, manager_id):
+    def assign_manager(self, employee_id,manager_id):
         assigned_manager = Employee.find_by_id(employee_id)
         if assigned_manager:
             setattr(assigned_manager, "manager_id", manager_id)
             Manager.managers.append(assigned_manager)
         else:
-            print(f"We don't have employee of  employee_id : {employee_id}. ")
+            print(f"We don"t have employee of  employee_id : {employee_id}. ")
         
-
     @classmethod
     def add_teammate(cls, manager_id, teammate_id):
         pass 
 
     @classmethod
     def find_manager_by_name(cls, search_name):
-        pass
+        for manager in cls.managers:
+            if manager.get_full_name() == search_name:
+               manager.display_info()
+               return True
+             return False
+         
+         
 
     @classmethod
     def find_manager_by_id(cls, search_id):
@@ -40,6 +45,7 @@ class Manager(Employee):
             print("None: Manager list is empty")
         for manager in cls.managers:
             manager.display_info()
+         
         
 
     def remove_teammate(self, temate_id):
