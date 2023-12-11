@@ -12,7 +12,7 @@ class Manager(Employee):
         Manager.managers.append(self)
     
     @classmethod
-    def assign_manager(self, employee_id,manager_id):
+    def assign_manager(cls, employee_id,manager_id):
         assigned_manager = Employee.find_by_id(employee_id)
         if assigned_manager:
             setattr(assigned_manager, "manager_id", manager_id)
