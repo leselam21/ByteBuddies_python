@@ -9,7 +9,7 @@ class Manager(Employee):
         super().__init__(fname,lname, employee_id, salary)
         self.man_id = man_id
         self.teammates = []
-        Managers.manager.append(self)
+        Manager.manager.append(self)
     
     @classmethod
     def assign_manager(self, manager_id):
