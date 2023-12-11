@@ -72,8 +72,11 @@ def main():
 
                 if manager_choice == "1":
                     employee_id = input("Enter Employee ID to assign as a Manager: ")
-                    manager_id = input("Please create new ID for assigned a Manager: ")
-                    Manager.assign_manager(employee_id)
+                    if Employee.find_by_id(employee_id) : 
+                        manager_id = input("Please create new ID for assigned a Manager: ")                
+                        Manager.assign_manager(employee_id)
+                    else: 
+                        print(f"we don't have employee of id :{employee_id})
                 elif manager_choice == "2":
                     print("Please write me,I am waiting for you :)")
                 elif manager_choice == "3":
