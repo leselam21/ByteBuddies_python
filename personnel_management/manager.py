@@ -3,12 +3,13 @@
 
 
 from employee import Employee
-
+ managers =[]
 class Manager(Employee):
     def __init__(self, fname, lname, employee_id,salary, man_id):
         super().__init__(fname,lname, employee_id, salary)
         self.man_id = man_id
         self.teammates = []
+        Managers.manager.append(self)
     
     @classmethod
     def assign_manager(self, manager_id):
