@@ -78,7 +78,7 @@ def main():
                 elif manager_choice == "3":
                     print("Please write me,I am waiting for you :)")
                 elif manager_choice == "5":
-                    Manager.show_managers()
+                    Manager.show_all_managers()
                 elif manager_choice == "6":
                     Manager.help() 
                 elif manager_choice == "7":
