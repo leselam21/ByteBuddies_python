@@ -30,7 +30,7 @@ class Manager(Employee):
             if manager.get_full_name() == search_name:
                manager.display_info()
                return True
-             return False
+            return False
          
          
 
@@ -44,9 +44,8 @@ class Manager(Employee):
         if len(cls.managers) ==0 :
             print("None: Manager list is empty")
         for manager in cls.managers:
-            manager.display_info()
+            f"Employee_Id: {manager.employee_id} manager_Id: {manager.manager_id} first_name: {manager.first_name} last_name: {manager.last_name} salary: {manager.pay:.3f}")
          
-        
 
     def remove_teammate(self, temate_id):
         pass
