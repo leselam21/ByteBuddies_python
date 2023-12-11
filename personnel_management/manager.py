@@ -15,7 +15,7 @@ class Manager(Employee):
     def assign_manager(self, manager_id):
         assigned_manager = Employee.find_by_id(employee_id)
         if assigned_manager:
-            assigned_manager.manager_id = manager_id
+            setattr(assigned_manager, "manager_id", manager_id)
             Manager.managers.append(assigned_manager)
         else:
             print(f"We don't have employee of  employee_id : {employee_id}. ")
