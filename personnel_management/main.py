@@ -72,7 +72,11 @@ def main():
 
                 if manager_choice == "1":
                     employee_id = input("Enter Employee ID to assign as a Manager: ")
-                    Manager.assign_manager(employee_id)
+                    if Employee.find_by_id(employee_id) : 
+                        manager_id = input("Please create new ID for assigned a Manager: ")                
+                        Manager.assign_manager(employee_id)
+                    else: 
+                        print(f"we don't have employee of id :{employee_id}")
                 elif manager_choice == "2":
                     print("Please write me,I am waiting for you :)")
                 elif manager_choice == "3":
@@ -80,8 +84,11 @@ def main():
                 elif manager_choice == "4":
                     full_name =str(input("please input full_name : "))
                     Manager.find_manager_by_name(full_name)
+                elif manager_choice =="4":
+                    Full_name =str(input("please input full_name : "))
+                    Manager.find_manager_by_name(Full_name)
                 elif manager_choice == "5":
-                    Manager.show_managers()
+                    Manager.show_all_managers()
                 elif manager_choice == "6":
                     Manager.help() 
                 elif manager_choice == "7":
