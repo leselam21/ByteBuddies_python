@@ -18,7 +18,7 @@ class Manager(Employee):
             setattr(assigned_manager, "manager_id", manager_id)
             Manager.managers.append(assigned_manager)
         else:
-            print(f"We don"t have employee of  employee_id : {employee_id}. ")
+            print(f"We don't have employee of  employee_id : {employee_id}. ")
         
     @classmethod
     def add_teammate(cls, manager_id, teammate_id):
@@ -44,8 +44,8 @@ class Manager(Employee):
         if len(cls.managers) ==0 :
             print("None: Manager list is empty")
         for manager in cls.managers:
-            f"Employee_Id: {manager.employee_id} manager_Id: {manager.manager_id} first_name: {manager.first_name} last_name: {manager.last_name} salary: {manager.pay:.3f}")
-         
+            print(f"Employee_Id: {manager.employee_id} manager_Id: {manager.manager_id} first_name: {manager.first_name} last_name: {manager.last_name} salary: {manager.pay:.3f}")
+
 
     def remove_teammate(self, temate_id):
         pass
