@@ -45,7 +45,7 @@ class Employee:
         for employee in cls.employees:
             if employee.employee_id == search_id:
                 employee.display_info()
-                return True
+                return employee
         return False
     
     @classmethod
