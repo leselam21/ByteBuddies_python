@@ -81,6 +81,9 @@ def main():
                     print("Please write me,I am waiting for you :)")
                 elif manager_choice == "3":
                     print("Please write me,I am waiting for you :)")
+                elif manager_choice =="4":
+                    Full_name =str(input("please input full_name : "))
+                    Manager.find_manager_by_name(Full_name)
                 elif manager_choice == "5":
                     Manager.show_all_managers()
                 elif manager_choice == "6":
