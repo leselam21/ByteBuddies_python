@@ -12,7 +12,13 @@ class Manager(Employee):
     
     @classmethod
     def assign_manager(self, manager_id):
-        pass 
+        assigned_manager = Employee.find_by_id(employee_id)
+        if assigned_manager:
+            assigned_manager.manager_id = manager_id
+            Manager.managers.append(assigned_manager)
+        else:
+            print(f"We don't have employee of  employee_id : {employee_id}. ")
+        
 
     @classmethod
     def add_teammate(cls, manager_id, teammate_id):
@@ -28,7 +34,12 @@ class Manager(Employee):
 
     @classmethod
     def show_all_managers(cls):
-        pass 
+        print("\nAll Registered Employees:")
+        if len(cls.managers) ==0 :
+            print("None: Manager list is empty")
+        for manager in cls.managers:
+            manager.display_info()
+        
 
     def remove_teammate(self, temate_id):
         pass
