@@ -22,7 +22,20 @@ class Manager(Employee):
         
     @classmethod
     def add_teammate(cls, manager_id, teammate_id):
-        pass 
+        teammates =[]
+        assigned_employee =  Employee.find_by_id(employee_id)
+        teammates.append([assigned_employee.first_name ,
+                         assigned_employee.last_name,
+                         assigned_employee.employee_id,
+                         assigned_employee.pay])
+        for manager in cls.managers:
+            if manager.manager_id == manager_id:
+                if hasattr(manager,"teammates"):
+                    manager.teammates.append(teammates)
+                else:
+                    setattr(manager,"teammates",teammates)
+            else:
+                print(f"we don't have manager with manager_id: {manager_id}")
 
     @classmethod
     def find_manager_by_name(cls, search_name):
@@ -36,7 +49,12 @@ class Manager(Employee):
 
     @classmethod
     def find_manager_by_id(cls, search_id):
-        pass 
+        for manager in cls.managers: 
+            if manager.manager_id == search_id:
+                manager.display_info()
+                return True
+            return False
+                
 
     @classmethod
     def show_all_managers(cls):
@@ -48,7 +66,10 @@ class Manager(Employee):
 
 
     def remove_teammate(self, temate_id):
-        pass
+        for manager in cls.managers:
+             if manager.manager_id == search_id:
+                 for teammates in manager.teammates:
+                     print(teammates)
     
     def remove_manager(self, man_id):
         pass
