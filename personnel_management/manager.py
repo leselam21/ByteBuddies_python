@@ -36,7 +36,11 @@ class Manager(Employee):
 
     @classmethod
     def find_manager_by_id(cls, search_id):
-        pass 
+        for manager in cls.managers: 
+            if manager.manager_id == search_id:
+                manager.display_info()
+                return True
+            return False
 
     @classmethod
     def show_all_managers(cls):
