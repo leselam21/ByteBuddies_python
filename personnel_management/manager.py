@@ -22,7 +22,8 @@ class Manager(Employee):
         
     @classmethod
     def add_teammate(cls, manager_id, teammate_id):
-        pass 
+        teammates =[] 
+        assigned_employee =  Employee.find_by_id(employee_id)
 
     @classmethod
     def find_manager_by_name(cls, search_name):
