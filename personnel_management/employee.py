@@ -49,6 +49,14 @@ class Employee:
         return False
     
     @classmethod
+    def find_by_name(cls, search_name):
+        for employee in cls.employees:
+            if f"{employee.first_name} {employee.last_name}" == search_name:
+                employee.display_info()
+                return employee
+        return False
+    
+    @classmethod
     def show_employees(cls):
         print("\nAll Registered Employees:")
         if len(cls.employees) == 0:

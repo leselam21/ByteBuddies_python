@@ -48,7 +48,11 @@ def main():
                         print(f"No employee found with ID {search_id}.")
 
                 elif employee_choice == "3":
-                    print("Please write me,I am waiting for you :)")
+                    # print("Please write me,I am waiting for you :)")
+                    search_name = input("Enter full name: ")
+                    found = Employee.find_by_name(search_name)
+                    if not found:
+                        print(f"No employee found with {search_name}")
                 elif employee_choice == "4":
                     Employee.show_employees()
                 elif employee_choice == "5":
@@ -72,9 +76,9 @@ def main():
 
                 if manager_choice == "1":
                     employee_id = input("Enter Employee ID to assign as a Manager: ")
-                    if Employee.find_by_id(employee_id) : 
+                    if Employee.find_by_id(employee_id): 
                         manager_id = input("Please create new ID for assigned a Manager: ")                
-                        Manager.assign_manager(employee_id)
+                        Manager.assign_manager(employee_id, manager_id)
                     else: 
                         print(f"we don't have employee of id :{employee_id}")
                 elif manager_choice == "2":
