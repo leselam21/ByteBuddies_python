@@ -49,6 +49,15 @@ class Employee:
         return False
     
     @classmethod
+    def find_by_name(cls, search_name):
+        for employee in cls.employees:
+            if f"{employee.first_name} {employee.last_name}" == search_name:
+                employee.display_info()
+                return employee
+        return False
+
+    
+    @classmethod
     def show_employees(cls):
         print("\nAll Registered Employees:")
         if len(cls.employees) == 0:
@@ -59,18 +68,22 @@ class Employee:
         print("\n")
 
 
-if __name__ == '__main__':
+if __name__ == '__main__': # this line tells do the following if I run this code employee.py
+    from pprint import pprint
     emp =  Employee("Selam", "Demise", "001", 5000)
     emp2 =  Employee("Gebre", "Gemechu", "002", 7000)
     emp3 =  Employee("Hagos", "Desta", "003", 6000)
     emp4 =  Employee("Gemechu", "Demise", "004", 15000)
 
-    print(f"1. {emp.get_full_name()}")
-    emp.apply_raise(20)
-    print(f"2. {emp.get_pay()}")
-    print(f"3. {emp}")
-    print(f"4. {emp4}")
-    print(f"5. {emp.get_full_name()} said there are {emp.count} employees")
-    print(f"6. {emp4.get_full_name()} said there are {emp4.count} employees")
-    print(f"7. Woow! how {emp.get_full_name()} knew that there are {emp4.count} employees")
-    print(f"8. Did {emp.get_full_name()} know everything {emp4.get_full_name()} knows")
+    # print(f"1. {emp.get_full_name()}")
+    # emp.apply_raise(20)
+    # print(f"2. {emp.get_pay()}")
+    # print(f"3. {emp}")
+    # print(f"4. {emp4}")
+    # print(f"5. {emp.get_full_name()} said there are {emp.count} employees")
+    # print(f"6. {emp4.get_full_name()} said there are {emp4.count} employees")
+    # print(f"7. Woow! how {emp.get_full_name()} knew that there are {emp4.count} employees፟-because {count} is class attribute")
+    # print(f"8. Did {emp.get_full_name()} know everything {emp4.get_full_name()} knows - not because {emp4} has his own instances")
+
+    pprint(emp.__dict__)
+    pprint(Employee.__dict__)
